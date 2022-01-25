@@ -35,13 +35,15 @@
 		<tbody>
 		<% 	while(rs.next()){ %>
 			<tr>
-				<td><%=rs.getString("systemname")%></td>				
+				<td><%=rs.getString("systemname")%></td>
+				<td><img src="<%=request.getContextPath() %>/upload/<%=rs.getString("systemname")%>"></td>				
 			</tr>
-			<img src="C:/TH/uploaded/213.png">
+			
 		<%	}	%>
 		</tbody>
 	</table>
-	<img src="C:/TH/uploaded/213.png">
+	<img src="<%=request.getContextPath() %>/upload/213.png">
+	
 </body>
 </html>
 <%

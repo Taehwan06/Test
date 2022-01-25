@@ -10,7 +10,7 @@
 <% 
 	request.setCharacterEncoding("UTF-8");
 
-    final String saveFolder = "C:/TH/eclipse/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/mailTest/uploaded";
+    final String saveFolder = "D:/workspace/upload";
     final String encoding = "UTF-8";
 	final int maxSize = 10*1024*1024;		//100MB 제한
 	
@@ -27,7 +27,8 @@
 		systemName = multi.getFilesystemName("uploadFile");
 		originalName = multi.getOriginalFileName("uploadFile");
 		
-				
+		
+		
 		type = multi.getContentType("uploadFile");
 		File f = multi.getFile("uploadFile");
 		
@@ -43,5 +44,5 @@
 	}catch(Exception e){
 		e.printStackTrace();
 	}
-		
+	
 %>
