@@ -13,11 +13,12 @@
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	ResultSet rs2 = null;
 	
 	try{
 		conn = DBManager.getConnection();
 		
-		String sql = "select * from image";
+		String sql = "SELECT * FROM (SELECT ROWNUM r, a.* FROM (SELECT * FROM RANKING_SAMPLE ORDER BY ctotal) a)";
 		
 		psmt = conn.prepareStatement(sql);
 		rs = psmt.executeQuery();
@@ -41,12 +42,24 @@
 </head>
 <body>
 	<table>
+		<thead>
+			<tr>
+				<th>순위</th>
+				<th>국가</th>
+				<th>총점</th>
+			</tr>
+		</thead>
 		<tbody>
 		<% 	while(rs.next()){ %>
 			<tr>
+				<td><%=rs.getInt("r") %></td>
+				<td><%=rs.getString("cname") %></td>
+				<td><%=rs.getInt("ctotal") %></td>
+			</tr>		
+		<%-- 	<tr>
 				<td><%=rs.getString("systemname")%></td>
 				<td><img src="<%=request.getContextPath() %>/upload/<%=rs.getString("systemname")%>"></td>				
-			</tr>
+			</tr> --%>
 			
 		<%	}	%>
 		</tbody>
@@ -60,5 +73,8 @@
 		e.printStackTrace();
 	}finally{
 		DBManager.close(psmt,conn,rs);
+		if(rs2!=null){
+			rs2.close();
+		}
 	}
 %>
