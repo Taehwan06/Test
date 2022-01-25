@@ -29,6 +29,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	body {
+        height: 2000px;
+        background-image: url("<%=request.getContextPath() %>/upload/back.png");
+        background-repeat : no-repeat;
+        background-size : contain;
+        background-position: center bottom;
+      }
+</style>
 </head>
 <body>
 	<table>
