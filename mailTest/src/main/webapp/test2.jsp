@@ -5,14 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-	iframe{
-		width: 800px;
-		height: 900px;
-	}
+<style>	
 </style>
+<script>
+</script>
 </head>
-<body> 	
-	<iframe src="https://www.news1.kr/articles/4564446"></iframe>
+<body>
+	<input type="button" location.href="test3.jsp">
+	
 </body>
 </html>
