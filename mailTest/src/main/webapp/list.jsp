@@ -20,8 +20,8 @@
 		
 		String sql = "SELECT * FROM (SELECT ROWNUM r, a.* FROM (SELECT * FROM RANKING_SAMPLE ORDER BY ctotal) a)";
 		
-		psmt = conn.prepareStatement(sql);
-		rs = psmt.executeQuery();
+		//psmt = conn.prepareStatement(sql);
+		//rs = psmt.executeQuery();
 				
 
 %>
